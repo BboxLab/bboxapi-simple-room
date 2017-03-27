@@ -141,8 +141,8 @@ public class MainActivity extends Activity {
                                 }
                             });
                 } else {
-                    Log.i(TAG, "Name room is empty");
-                    Toast.makeText(getApplicationContext(), "Name room is empty", Toast.LENGTH_SHORT).show();
+                    Log.i(TAG, "Room name is empty");
+                    Toast.makeText(getApplicationContext(), "Room name is empty", Toast.LENGTH_SHORT).show();
 
                 }
             }

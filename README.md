@@ -19,7 +19,7 @@ Send msg in this app or third party app (bboxapi-client-android https://github.c
 curl -X POST -H "x-sessionid: xxxxxxxxxx" -H "Content-Type: application/json" -d '{
   "appId": "string",
   "message": "string"
-}' "http://bboxIp:8080/api.bbox.lan/v0/notification/Message/red"
+}' "http://bboxIp:8080/api.bbox.lan/v0/notification/Message/roomName"
 
 Info "x-sessionId" -> https://api.bbox.fr/doc/#Getting%20started
 
