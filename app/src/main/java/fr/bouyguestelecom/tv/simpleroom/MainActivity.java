@@ -19,6 +19,11 @@ import tv.bouyguestelecom.fr.bboxapilibrary.callback.IBboxSendMessage;
 import tv.bouyguestelecom.fr.bboxapilibrary.callback.IBboxSubscribe;
 import tv.bouyguestelecom.fr.bboxapilibrary.model.MessageResource;
 
+/**
+ * Created by rmessara on 24/03/17.
+ * simpleRoom
+ */
+
 public class MainActivity extends Activity {
     private String TAG = "MainActivity";
     private MyBbox mBbox;
@@ -36,6 +41,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         handler = new Handler();
         mCreate = (Button) findViewById(R.id.button_create);
         mNameRoom = (EditText) findViewById(R.id.editText_name_room);
@@ -89,14 +95,14 @@ public class MainActivity extends Activity {
                                                     @Override
                                                     public void onSubscribe() {
                                                         //received message from room
+                                                        Toast.makeText(getApplicationContext(), "Subscribe success", Toast.LENGTH_SHORT).show();
                                                         Bbox.getInstance().addListener(mBbox.getIp(),
                                                                 registerApp,
                                                                 new IBboxMessage() {
                                                                     @Override
                                                                     public void onNewMessage(MessageResource message) {
-                                                                        Log.i("notif", "test room " + message.toString());
+                                                                        Log.i("onNewMessage", "message : " + message.toString());
                                                                         mMessage = mMessage + "\n" + message.toString();
-
                                                                         handler.post(new Runnable() {
                                                                             @Override
                                                                             public void run() {
@@ -108,7 +114,15 @@ public class MainActivity extends Activity {
                                                     }
                                                     @Override
                                                     public void onFailure(Request request, int errorCode) {
-                                                        Log.i("notif", "Notification failed");
+                                                        Log.i("onSubscribe", "subscribe failed");
+                                                        handler.post(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                Toast.makeText(getApplicationContext(), "subscribe failed", Toast.LENGTH_SHORT).show();
+
+                                                            }
+                                                        });
+
                                                     }
                                                 });
                                         // end create room
@@ -116,11 +130,20 @@ public class MainActivity extends Activity {
                                 }
                                 @Override
                                 public void onFailure(Request request, int errorCode) {
-                                    Log.i("notif", "Notification failed");
+                                    Log.i("IBboxRegisterApp", "register app failed");
+                                    handler.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(getApplicationContext(), "register app failed", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
                                 }
                             });
                 } else {
                     Log.i(TAG, "Name room is empty");
+                    Toast.makeText(getApplicationContext(), "Name room is empty", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
