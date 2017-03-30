@@ -1,6 +1,6 @@
 # Simple-room
 
-Application to send/receive message in a room with Box Api
+TV Application sample to create a room and send/receive message in this room with Box Api
 
 ### Setup Android Studio
 
@@ -10,9 +10,9 @@ BBOXAPI_APP_ID and BBOXAPI_APP_SECRET are given by Bouygues Telecom. If you dont
 
 ## First step
 
-Create room (case sensitive)
+Create a room (case sensitive) from this TV Application
 
-Send msg in this app or third party app (bboxapi-client-android https://github.com/BboxLab/bboxapi-client-android)
+Send msg to or from this App or from a third party App (bboxapi-client-android https://github.com/BboxLab/bboxapi-client-android)
 
 ## Send msg 
 
