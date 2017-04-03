@@ -1,6 +1,7 @@
 # Simple-room
 
-TV Application sample to create a room and send/receive message in this room with Box Api
+TV Application sample to create a "room" and send/receive message in this "room" with Box Api.
+The "room" may be usefull if you want to synhronize the user profile parameters from your mobile App with the TV App.
 
 ### Setup Android Studio
 
