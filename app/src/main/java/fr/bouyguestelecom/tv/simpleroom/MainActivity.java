@@ -95,7 +95,13 @@ public class MainActivity extends Activity {
                                                     @Override
                                                     public void onSubscribe() {
                                                         //received message from room
-                                                        Toast.makeText(getApplicationContext(), "Subscribe success", Toast.LENGTH_SHORT).show();
+                                                        handler.post(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                Toast.makeText(getApplicationContext(), "Subscribe success", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+
                                                         Bbox.getInstance().addListener(mBbox.getIp(),
                                                                 registerApp,
                                                                 new IBboxMessage() {
@@ -122,7 +128,6 @@ public class MainActivity extends Activity {
 
                                                             }
                                                         });
-
                                                     }
                                                 });
                                         // end create room
