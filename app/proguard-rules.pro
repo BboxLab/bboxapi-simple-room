@@ -23,3 +23,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#-keep class * extends tv.bouyguestelecom.fr.bboxapilibrary.callback.IBboxSubscribe { *; }
+#-keep class * extends tv.bouyguestelecom.fr.bboxapilibrary.ws.WebSocket { *; }
+

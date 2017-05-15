@@ -49,6 +49,8 @@ public class MainActivity extends Activity {
         mSend = (Button) findViewById(R.id.button_send);
         mMsg = (EditText) findViewById(R.id.editText_msg);
 
+        NotificationRoom notificationRoom = new NotificationRoom(mBbox, getApplicationContext(), mText);
+
         mSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +62,7 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
 
         mCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +121,7 @@ public class MainActivity extends Activity {
                                                                     }
                                                                 });
                                                     }
+
                                                     @Override
                                                     public void onFailure(Request request, int errorCode) {
                                                         Log.i("onSubscribe", "subscribe failed");
@@ -133,6 +137,7 @@ public class MainActivity extends Activity {
                                         // end create room
                                     }
                                 }
+
                                 @Override
                                 public void onFailure(Request request, int errorCode) {
                                     Log.i("IBboxRegisterApp", "register app failed");
@@ -155,8 +160,7 @@ public class MainActivity extends Activity {
     }
 
 
-    void sendMsg(String msg)
-    {
+    void sendMsg(String msg) {
         Bbox.getInstance().sendMessage(mBbox.getIp(),
                 getString(R.string.APP_ID),
                 getString(R.string.APP_SECRET),

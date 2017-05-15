@@ -13,7 +13,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -24,10 +24,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support:leanback-v17:25.3.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:leanback-v17:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta3'
     testCompile 'junit:junit:4.12'
-    compile 'fr.bouyguestelecom.dev:bboxapi:1.0'
-
+    compile 'fr.bouyguestelecom.dev:bboxapi:1.2'
+    //compile project(path: ':bboxapi')
 }
